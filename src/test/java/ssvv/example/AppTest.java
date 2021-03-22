@@ -86,13 +86,13 @@ public class AppTest
     // TC 2
     @Test
     public void testAddStudentInvalidId() {
-        Student idNull = new Student(null, "Bob", 999, "email");
+        Student idNull = new Student(null, "Bob", 931, "email");
         try {
             service.addStudent(idNull);
             assert false;
         }
         catch (NullPointerException | ValidationException e) {
-            Student idEmpty = new Student("", "Bob", 999, "email");
+            Student idEmpty = new Student("", "Bob", 931, "email");
             try {
                 service.addStudent(idEmpty);
                 assert false;
@@ -106,13 +106,13 @@ public class AppTest
     // TC 3
     @Test
     public void testAddStudentInvalidName() {
-        Student nameNull = new Student("abcd1235", null, 999, "email");
+        Student nameNull = new Student("abcd1235", null, 931, "email");
         try {
             service.addStudent(nameNull);
             assert false;
         }
         catch (NullPointerException | ValidationException e) {
-            Student nameEmpty = new Student("abcd1235", "", 999, "email");
+            Student nameEmpty = new Student("abcd1235", "", 931, "email");
             try {
                 service.addStudent(nameEmpty);
                 assert false;
@@ -126,13 +126,13 @@ public class AppTest
     // TC 4
     @Test
     public void testAddStudentInvalidEmail() {
-        Student emailNull = new Student("abcd1235", "Bob", 999, null);
+        Student emailNull = new Student("abcd1235", "Bob", 931, null);
         try {
             service.addStudent(emailNull);
             assert false;
         }
         catch (NullPointerException | ValidationException e) {
-            Student emailEmpty = new Student("abcd1235", "Bob", 999, "");
+            Student emailEmpty = new Student("abcd1235", "Bob", 931, "");
             try {
                 service.addStudent(emailEmpty);
                 assert false;
@@ -146,7 +146,7 @@ public class AppTest
     // TC 5
     @Test
     public void testAddStudentInvalidGroup() {
-        Student student = new Student("abcd1235", "Bob", -999, "email");
+        Student student = new Student("abcd1235", "Bob", -931, "email");
 
         try {
             service.addStudent(student);
@@ -160,9 +160,51 @@ public class AppTest
     // TC 6
     @Test
     public void testAddStudentDuplicateId() {
-        Student student = new Student("abcdduplicate", "Bob", 999, "email");
+        Student student = new Student("abcdduplicate", "Bob", 932, "email");
         assertNull(service.addStudent(student));
 
         assertNotNull(service.addStudent(student));
+    }
+    //TC 7
+    @Test
+    public void testGroupBVABelowMin(){
+        Student std = new Student("abcd1238", "Bob", 99, "email");
+        try {
+            service.addStudent(std);
+            assert false;
+        }
+        catch (NullPointerException | ValidationException e) {
+            assert true;
+        }
+    }
+    //TC 8
+    @Test
+    public void testGroupBVAAboveMax(){
+        Student std = new Student("abcd1239", "Bob", 1000, "email");
+        try {
+            service.addStudent(std);
+            assert false;
+        }
+        catch (NullPointerException | ValidationException e) {
+            assert true;
+        }
+    }
+    //TC 9
+    @Test
+    public void testGroupBVAMin(){
+        Student std = new Student("gghf1234", "Bob", 100, "email");
+        assertNull(service.addStudent(std));
+    }
+    //TC 10
+    @Test
+    public void testGroupBVAAboveMin(){
+        Student std = new Student("gghf1236", "Bob", 101, "email");
+        assertNull(service.addStudent(std));
+    }
+    //TC 11
+    @Test
+    public void testGroupBVABelowMax(){
+        Student std = new Student("gghf1238", "Bob", 998, "email");
+        assertNull(service.addStudent(std));
     }
 }
