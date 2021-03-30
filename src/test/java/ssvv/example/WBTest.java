@@ -69,8 +69,7 @@ public class WBTest
             Transformer transformer = TransformerFactory.
                     newInstance().newTransformer();
             transformer.transform(new DOMSource(document),
-                    new StreamResult(filenameStudent));
-
+                    new StreamResult(filenameTema));
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -78,17 +77,15 @@ public class WBTest
 
     // TC 1
     @Test
-    public void testAddStudentValid() {
-        Student student = new Student("abcd1234", "Bob", 999, "email");
-        /**
-         *
-         * @param nrTema - numarul temei
-         * @param descriere - descrierea unei teme
-         * @param deadline - deadlineul unei teme
-         * @param primire - saptamana de primirea unei teme
-         * Class Constructor
-         */
+    public void testCondition1True() {
         Tema tema= new Tema("1","descriere",8,6);
-        assertNull(service.addStudent(student));
+        assertNull(service.addTema(tema));
+    }
+    // TC 1
+    @Test
+    public void testCondition1False() {
+        Tema tema= new Tema("2","descriere",8,6);
+        assertNull(service.addTema(tema));
+        assertEquals(service.addTema(tema),tema);
     }
 }
