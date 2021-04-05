@@ -110,7 +110,9 @@ public abstract class AbstractXMLRepository<ID, E extends HasID<ID>> extends Abs
             transformer.transform(new DOMSource(document),
                     new StreamResult(this.filename));
 
-
+        }catch(Exception e){
+        e.printStackTrace();
+        }
     }
 
     /**
