@@ -74,16 +74,53 @@ public class WBTest
             e.printStackTrace();
         }
     }
-
-    // TC 1
     @Test
-    public void testCondition1True() {
+    public void TC1() {
+        Tema tema= new Tema("","desc",4,2);
+        try{
+            service.addTema(tema);
+            assert(false);
+        }catch (Exception e){
+            assert(true);
+        }
+    }
+    @Test
+    public void TC2() {
+        Tema tema= new Tema("1","",4,2);
+        try{
+            service.addTema(tema);
+            assert(false);
+        }catch (Exception e){
+            assert(true);
+        }
+    }
+    @Test
+    public void TC3() {
+        Tema tema= new Tema("1","desc",0,2);
+        try{
+            service.addTema(tema);
+            assert(false);
+        }catch (Exception e){
+            assert(true);
+        }
+    }
+    @Test
+    public void TC4() {
+        Tema tema= new Tema("1","desc",4,0);
+        try{
+            service.addTema(tema);
+            assert(false);
+        }catch (Exception e){
+            assert(true);
+        }
+    }
+    @Test
+    public void TC5() {
         Tema tema= new Tema("1","descriere",8,6);
         assertNull(service.addTema(tema));
     }
-    // TC 1
     @Test
-    public void testCondition1False() {
+    public void TC6() {
         Tema tema= new Tema("2","descriere",8,6);
         assertNull(service.addTema(tema));
         assertEquals(service.addTema(tema),tema);
