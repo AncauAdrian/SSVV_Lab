@@ -84,7 +84,7 @@ public class BBIntegration {
 
     // Add student test
     @Test
-    public void testAddStudentInvalidName() {
+    public void addStudentTest() {
         Student nameNull = new Student("abcd1235", null, 931, "email");
         try {
             service.addStudent(nameNull);
