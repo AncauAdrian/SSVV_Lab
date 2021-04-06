@@ -1,0 +1,36 @@
+
+Tema: 1
+Nota: 8.0
+Predata in saptamana: 7
+Deadline: 7
+Feedback: Nice
+
+Tema: 1
+Nota: 8.0
+Predata in saptamana: 7
+Deadline: 7
+Feedback: Nice
+
+Tema: 1
+Nota: 8.0
+Predata in saptamana: 7
+Deadline: 7
+Feedback: Nice
+
+Tema: 1
+Nota: 8.0
+Predata in saptamana: 7
+Deadline: 7
+Feedback: Nice
+
+Tema: bbi_tema
+Nota: 8.0
+Predata in saptamana: 7
+Deadline: 7
+Feedback: Nice
+
+Tema: bbi_tema
+Nota: 8.0
+Predata in saptamana: 7
+Deadline: 7
+Feedback: Nice
